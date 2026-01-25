@@ -11,6 +11,22 @@
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("catppuccin").setup({
+        auto_integrations = true,
+      })
+
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.cmd.colorscheme("catppuccin")
+    end,
+  },
   { "NMAC427/guess-indent.nvim", opts = {} }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -34,8 +50,6 @@ require("lazy").setup({
   require("kickstart.plugins.conform"),
 
   require("kickstart.plugins.blink-cmp"),
-
-  require("kickstart.plugins.tokyonight"),
 
   require("kickstart.plugins.todo-comments"),
 
