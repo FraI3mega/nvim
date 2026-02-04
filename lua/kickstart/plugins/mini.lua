@@ -41,7 +41,9 @@ return {
 
       require("mini.bracketed").setup()
 
-      require("mini.animate").setup()
+      require("mini.animate").setup({
+        cursor = { enable = false },
+      })
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
