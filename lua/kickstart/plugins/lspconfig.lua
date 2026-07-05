@@ -158,6 +158,7 @@ return {
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
+          vim.lsp.inlay_hint.enable()
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map("<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
@@ -231,18 +232,18 @@ return {
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       require("mason-lspconfig").setup({
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            require("lspconfig")[server_name].setup(server)
-          end,
-        },
+        -- ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        -- automatic_installation = false,
+        -- handlers = {
+        --   function(server_name)
+        --     local server = servers[server_name] or {}
+        --     -- This handles overriding only values explicitly passed
+        --     -- by the server configuration above. Useful when disabling
+        --     -- certain features of an LSP (for example, turning off formatting for ts_ls)
+        --     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+        --     require("lspconfig")[server_name].setup(server)
+        --   end,
+        -- },
       })
     end,
   },

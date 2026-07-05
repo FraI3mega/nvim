@@ -3,6 +3,12 @@ return {
     "echasnovski/mini.nvim",
     version = false,
     config = function()
+      if vim.g.have_nerd_font then
+        require("mini.icons").setup()
+        -- Used for backwards compatibility with plugins that require `nvim-web-devicons` (e.g. telescope.nvim)
+        MiniIcons.mock_nvim_web_devicons()
+      end
+
       -- Better Around/Inside textobjects
       --
       -- Examples:
@@ -34,8 +40,6 @@ return {
       end
 
       require("mini.comment").setup()
-
-      require("mini.pairs").setup()
 
       require("mini.basics").setup()
 
