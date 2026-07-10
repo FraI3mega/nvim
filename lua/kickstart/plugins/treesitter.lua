@@ -1,8 +1,19 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    build = ":TSUpdate",
-  },
+  "romus204/tree-sitter-manager.nvim",
+  dependencies = {}, -- tree-sitter CLI must be installed system-wide
+  config = function()
+    require("tree-sitter-manager").setup({
+      auto_install = true,
+      -- Use built-in Neovim treesitter parsers
+      noauto_install = {
+        "c",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "query",
+        "vim",
+        "vimdoc",
+      },
+    })
+  end,
 }
--- vim: ts=2 sts=2 sw=2 et

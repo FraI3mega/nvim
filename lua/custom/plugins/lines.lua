@@ -6,6 +6,8 @@ return {
     },
     init = function()
       vim.g.barbar_auto_setup = false
+      require("mini.icons").setup()
+      MiniIcons.mock_nvim_web_devicons()
     end,
     opts = {
       -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:

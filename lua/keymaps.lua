@@ -50,5 +50,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
-
+vim.keymap.set("n", "<leader>e", function()
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    scope = "line",
+  })
+end, { desc = "Show line diagnostics" })
 -- vim: ts=2 sts=2 sw=2 et
