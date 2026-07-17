@@ -102,6 +102,20 @@ require("keymaps")
 -- [[ Install `lazy.nvim` plugin manager ]]
 require("lazy-bootstrap")
 
+function Get_mini_icon(ctx)
+  if ctx.source_name == "Path" then
+    local is_unknown_type =
+      vim.tbl_contains({ "link", "socket", "fifo", "char", "block", "unknown" }, ctx.item.data.type)
+    local mini_icon, mini_hl, _ =
+      require("mini.icons").get(is_unknown_type and "os" or ctx.item.data.type, is_unknown_type and "" or ctx.label)
+    if mini_icon then
+      return mini_icon, mini_hl
+    end
+  end
+  local mini_icon, mini_hl, _ = require("mini.icons").get("lsp", ctx.kind)
+  return mini_icon, mini_hl
+end
+
 -- [[ Configure and install plugins ]]
 require("lazy-plugins")
 

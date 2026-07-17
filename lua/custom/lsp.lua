@@ -1,3 +1,6 @@
+vim.lsp.codelens.enable(true)
+vim.lsp.inlay_hint.enable()
+
 vim.lsp.config("*", {
   before_init = function(_, config)
     local codesettings = require("codesettings")
@@ -10,3 +13,5 @@ vim.lsp.enable("nixd")
 -- vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("clangd")
 vim.lsp.enable("jsonls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("marksman")
