@@ -19,8 +19,38 @@ vim.lsp.config("*", {
   end,
 })
 
-vim.lsp.enable("lua_ls")
+local hostname = vim.uv.os_gethostname()
+vim.lsp.config("nixd", {
+  cmd = { "nixd" },
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "nixfmt" },
+      },
+      options = {
+        nixos = {
+          expr = string.format(
+            '(builtins.getFlake "/home/franek/NixOS-Dotfiles").nixosConfigurations.%s.options',
+            hostname
+          ),
+        },
+        home_manager = {
+          expr = string.format(
+            '(builtins.getFlake "/home/franek/NixOS-Dotfiles").nixosConfigurations.%s.options.home-manager.users.type.getSubOptions []',
+            hostname
+          ),
+        },
+      },
+    },
+  },
+})
+
 vim.lsp.enable("nixd")
+
+vim.lsp.enable("lua_ls")
 -- vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("clangd")
 vim.lsp.enable("jsonls")
