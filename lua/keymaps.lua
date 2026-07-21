@@ -56,4 +56,7 @@ vim.keymap.set("n", "<leader>e", function()
     scope = "line",
   })
 end, { desc = "Show line diagnostics" })
+
+vim.keymap.set("n", "<leader><leader>c", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader><leader>p", "<Cmd>BufferPick<CR>", { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et
