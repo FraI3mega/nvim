@@ -1,4 +1,5 @@
 return {
+  { "max397574/better-escape.nvim", event = "VimEnter", opts = {} },
   {
     "mrjones2014/smart-splits.nvim",
     build = "./kitty/install-kittens.bash",
