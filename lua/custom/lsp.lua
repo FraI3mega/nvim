@@ -57,3 +57,14 @@ vim.lsp.enable("jsonls")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("marksman")
 vim.lsp.enable("luau_lsp")
+
+vim.lsp.config("harper_ls", {
+  settings = {
+    ["harper-ls"] = {
+      userDictPath = "~/.dict.txt",
+      linters = { SentenceCapitalization = false },
+    },
+  },
+})
+vim.lsp.enable("ccls")
+vim.lsp.enable("harper_ls")
