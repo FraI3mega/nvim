@@ -54,7 +54,6 @@ vim.lsp.enable("lua_ls")
 -- vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("clangd")
 vim.lsp.enable("jsonls")
-vim.lsp.enable("jsonls")
 vim.lsp.enable("marksman")
 vim.lsp.enable("luau_lsp")
 
@@ -68,3 +67,27 @@ vim.lsp.config("harper_ls", {
 })
 vim.lsp.enable("ccls")
 vim.lsp.enable("harper_ls")
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.config("html", {
+  capabilities = capabilities,
+  settings = {
+    html = {
+      format = {
+        insertSpaces = true, -- Force using spaces
+        tabSize = 2, -- Change to 4 if you prefer
+      },
+    },
+  },
+})
+
+vim.lsp.config("cssls", {
+  capabilities = capabilities,
+})
+
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
+vim.lsp.enable("emmet_language_server")

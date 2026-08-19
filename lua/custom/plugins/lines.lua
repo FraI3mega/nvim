@@ -32,4 +32,22 @@ return {
       vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
     end,
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        component_separators = "",
+        section_separators = "",
+        theme = "catppuccin-nvim",
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    },
+  },
 }

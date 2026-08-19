@@ -19,6 +19,14 @@ require("lazy").setup({
       ---@diagnostic disable-next-line: missing-fields
       require("catppuccin").setup({
         auto_integrations = true,
+        flavour = "mocha",
+        transparent_background = true,
+        barbar = true,
+        nvim_surround = true,
+        dropbar = {
+          enabled = true,
+          color_mode = true, -- enable color for kind's texts, not just kind's icons
+        },
       })
 
       -- Load the colorscheme here.

@@ -9,6 +9,7 @@ vim.g.loaded_nvim_web_devicons = 1
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 vim.o.relativenumber = true
+vim.opt.cmdheight = 0
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
@@ -74,9 +75,9 @@ vim.o.confirm = true
 
 -- space tabs
 vim.o.smarttab = true
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 vim.o.breakindent = true
-vim.o.tabstop = 4
+vim.o.tabstop = 2
 
 vim.o.termguicolors = true
 
