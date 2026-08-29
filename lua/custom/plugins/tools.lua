@@ -17,7 +17,6 @@ return {
     build = "npm i",
     module = false,
     opts = {
-      colortype = "hex", -- hex | hl
       args = { -- accepts live-server cli arguments.
         port = 8080,
         ["no-browser"] = false,
@@ -26,6 +25,18 @@ return {
       },
     },
     config = true,
+  },
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add options here
+      -- or leave it empty to use the default settings
+    },
+    keys = {
+      -- suggested keymap
+      { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
   },
   {
     "mrjones2014/smart-splits.nvim",
