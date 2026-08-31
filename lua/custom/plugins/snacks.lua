@@ -9,7 +9,7 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
       bigfile = { enabled = true },
-      image = {},
+      image = { doc = { max_width = 80, max_height = 20 } },
       input = {},
       notifier = {},
       dashboard = {
