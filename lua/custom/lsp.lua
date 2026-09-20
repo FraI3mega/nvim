@@ -62,6 +62,7 @@ vim.lsp.config("harper_ls", {
     ["harper-ls"] = {
       userDictPath = "~/.dict.txt",
       linters = { SentenceCapitalization = false },
+      isolateEnglish = true,
     },
   },
 })
