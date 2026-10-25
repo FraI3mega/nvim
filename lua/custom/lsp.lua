@@ -66,7 +66,6 @@ vim.lsp.config("harper_ls", {
     },
   },
 })
-vim.lsp.enable("ccls")
 vim.lsp.enable("harper_ls")
 
 --Enable (broadcasting) snippet capability for completion
