@@ -92,3 +92,5 @@ vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 vim.lsp.enable("emmet_language_server")
 vim.lsp.enable("vtsls")
+
+vim.lsp.enable("slang_server")
