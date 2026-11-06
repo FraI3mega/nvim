@@ -94,3 +94,15 @@ vim.lsp.enable("emmet_language_server")
 vim.lsp.enable("vtsls")
 
 vim.lsp.enable("slang_server")
+vim.lsp.config("tinymist", {
+  init_options = {
+    preview = {
+      background = { enabled = true },
+    },
+  },
+  settings = {
+    syntaxOnly = "onPowerSaving", -- or "enable"
+  },
+})
+
+vim.lsp.enable("tinymist")
